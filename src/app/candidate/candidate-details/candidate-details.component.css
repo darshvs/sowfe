@@ -1,0 +1,28 @@
+
+table{
+  width: 3000px;
+  /* height: 2px; */
+}
+.mdc-button{
+    background-color: red;
+}
+
+
+.mat-mdc-form-field {
+    font-size: 10px;
+    width: 100%;
+}
+
+.mdc-data-table__header-row {
+    height: 35px;
+    background-color: #006E74;
+
+    .mdc-data-table__header-cell {
+        color: white;
+    }
+}
+
+.mdc-data-table__row {
+    height: 30px;
+    background-color: #f2f7f8;
+}
