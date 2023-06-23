@@ -1,1 +1,52 @@
-<p>header works!</p>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" (click)="drawer.toggle()"
+    aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>SOW Tracker</span>
+  <!-- <button mat-button routerLink="/dashboard">
+    Dashboard
+  </button> -->
+  <button mat-button routerLink="/sow">
+    SOW
+  </button>
+  <button mat-button routerLink="/candidatedetails">
+    Candidate
+  </button>
+  <button mat-button routerLink="/mapping">
+    SOCandidate Mapping
+  </button>
+  <button mat-button routerLink="/domain">
+    Domain
+  </button>
+  <!-- <button mat-button routerLink="/technology">
+    Technology
+  </button>
+  <button mat-button routerLink="/registration">
+    Registration
+  </button>
+  <button mat-button routerLink="/ChangePassword">
+    Change Password
+  </button> -->
+  <span class="example-spacer"></span>
+  <button mat-button>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    Darshan
+  </button>
+
+  <button mat-button >
+    Logout
+  </button>
+
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer mode="side">
+   
+    
+  </mat-drawer>
+  <mat-drawer-content>
+
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

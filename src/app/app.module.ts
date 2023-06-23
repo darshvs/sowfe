@@ -10,6 +10,9 @@ import { SecurityComponent } from './shared/Common/security/security.component';
 import { ServerDownComponent } from './shared/Common/server-down/server-down.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CandidateDetailsComponent } from './candidate/candidate-details/candidate-details.component';
+import { SoDetailsComponent } from './so/so-details/so-details.component';
+import { SoListComponent } from './so/so-list/so-list.component';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CandidateListComponent } from './candidate/candidate-list/candidate-list.component';
@@ -35,7 +38,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +50,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     ServerDownComponent,
     CandidateDetailsComponent,
     CandidateListComponent,
+    SoDetailsComponent,
+    SoListComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatFormFieldModule, MatSortModule,
@@ -53,7 +59,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     ReactiveFormsModule,MatRadioModule,MatSelectModule,MatTreeModule,MatGridListModule,
     MatListModule,MatListModule,MatSidenavModule,MatIconModule,MatIconModule,MatCardModule,
     MatToolbarModule,MatExpansionModule,MatMenuModule,MatCheckboxModule,
-    MatProgressBarModule,MatDatepickerModule,
+    MatProgressBarModule,MatDatepickerModule,MatTooltipModule,MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

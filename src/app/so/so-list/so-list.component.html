@@ -1,1 +1,245 @@
-<p>so-list works!</p>
+<div class="so">
+    <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+      <mat-card class="shipping-card">
+        <mat-card-header class="sodetailsheader">
+          <mat-card-title>SO Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+    
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>So Name</mat-label>
+                  <input matInput placeholder="Enter So Name" formControlName="firstName">
+                  <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                     <small>*So Name is required</small>
+                  </mat-error>
+              </mat-form-field>
+          </div>
+            <div class="col" >
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>JR Code</mat-label>
+                <input matInput placeholder="Enter JR Code" formControlName="lastName">
+                <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <small>*Last name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Request Creation Date</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Enter Request Creation Date" formControlName="firstName">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+          <small>*First name is required</small>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+            <div class="col ">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Account</mat-label>
+                <mat-select placeholder="Enter Account" formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                      {{ state.name }}
+                  </mat-option>
+              </mat-select>
+                <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <small>*Last name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Technology</mat-label>
+                <mat-select placeholder="Enter Technology" formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                      {{ state.name }}
+                  </mat-option>
+              </mat-select>
+                <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                  <small>*First name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Role/Technology Details</mat-label>
+                <input matInput placeholder="Enter Role/Technology Details" formControlName="lastName">
+                <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <small>*Last name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Region</mat-label>
+                <mat-select placeholder="Enter Region" formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                      {{ state.name }}
+                  </mat-option>
+              </mat-select>
+                <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                  <small>*First name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Location</mat-label>
+                <mat-select placeholder=" Enter Location" formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                      {{ state.name }}
+                  </mat-option>
+              </mat-select>
+                <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <small>*Last name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Target Open Positions</mat-label>
+                <input matInput placeholder=" Enter Target Open Positions" formControlName="firstName">
+                <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                  <small>*First name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Positions to be Closed</mat-label>
+                <input matInput placeholder=" Enter Positions to be Closed" formControlName="lastName">
+                <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <small>*Last name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>USTPOC</mat-label>
+                <mat-select placeholder=" Enter USTPOC" formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                      {{ state.name }}
+                  </mat-option>
+              </mat-select>
+                <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                  <small>*First name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Recruiter</mat-label>
+                <mat-select placeholder=" Enter Recruiter" formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                      {{ state.name }}
+                  </mat-option>
+              </mat-select>
+                <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <small>*Last name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>USTTPM</mat-label>
+                <mat-select placeholder="Enter USTTPM" formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                      {{ state.name }}
+                  </mat-option>
+              </mat-select>
+                <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                  <small>*First name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Dell Manager</mat-label>
+                <mat-select placeholder=" Enter Dell Manager" formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                      {{ state.name }}
+                  </mat-option>
+              </mat-select>    <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <small>*Last name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select placeholder="Enter Status" formControlName="state">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                      {{ state.name }}
+                  </mat-option>
+              </mat-select>   <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                  <small>*First name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Band</mat-label>
+                <input matInput placeholder="Enter Band" formControlName="lastName">
+                <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <small>*Last name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Project Id</mat-label>
+                <input matInput placeholder="Enter Project Id" formControlName="firstName">
+                <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                  <small>*First name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Account Manager</mat-label>
+                <input matInput placeholder=" Enter Account Manager" formControlName="lastName">
+                <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <small>*Last name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>External Resource</mat-label>
+                <input matInput placeholder="Enter External Resource" formControlName="firstName">
+                <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                  <small>*First name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Internal Resource</mat-label>
+                <input matInput placeholder="Enter Internal Resource"  formControlName="lastName">
+                <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                  <small>*Last name is required</small>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="actions-container">
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+          &nbsp;&nbsp;
+            &nbsp;&nbsp;
+          <button mat-raised-button color="warn" type="submit">Cancel</button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+    </div>

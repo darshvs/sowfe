@@ -1,1 +1,154 @@
-<p>so-details works!</p>
+<button mat-raised-button routerLink="/soList">Add SO</button>
+<button mat-raised-button (click)="fileInput.click()">Choose File</button>
+<input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file"
+  accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+<button mat-raised-button (click)="DownloadExcel()">Download Excel</button>
+<div class="candidate-details">
+
+  <div>
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- soName Column -->
+        <ng-container matColumnDef="soName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> SO Name </th>
+          <td mat-cell *matCellDef="let row" class="truncate-cell-email" matTooltip="{{row.soName}}">
+            {{row.soName}}</td>
+        </ng-container>
+
+        <!-- jrCode Column -->
+        <ng-container matColumnDef="jrCode">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> JRCode </th>
+          <td mat-cell *matCellDef="let row" class="truncate-cell"> {{row.jrCode}} </td>
+        </ng-container>
+
+        <!-- requestCreationDate Column -->
+        <ng-container matColumnDef="requestCreationDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Request CreationDate </th>
+          <td mat-cell *matCellDef="let row" class="truncate-cell"> {{row.requestCreationDate|date}} </td>
+        </ng-container>
+
+        <!-- technologyName Column -->
+        <ng-container matColumnDef="technologyName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Technology</th>
+          <td mat-cell *matCellDef="let row" class="truncate-cell-email" matTooltip="{{row.technologyName}}">
+            {{row.technologyName}}</td>
+        </ng-container>
+
+
+        <!-- role Column -->
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+          <td mat-cell *matCellDef="let row" class="truncate-cell"> {{row.role}} </td>
+        </ng-container>
+
+        <!-- region Column -->
+        <ng-container matColumnDef="region">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Region </th>
+          <td mat-cell *matCellDef="let row" class="truncate-cell"> {{row.region}} </td>
+        </ng-container>
+
+        <!-- location Column -->
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
+          <td mat-cell *matCellDef="let row" class="truncate-cell"> {{row.location}} </td>
+        </ng-container>
+
+        <!-- targetOpenPositions Column -->
+        <ng-container matColumnDef="targetOpenPositions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Target Open Positions </th>
+          <td mat-cell *matCellDef="let row"> {{row.targetOpenPositions}} </td>
+        </ng-container>
+        <!-- positionsTobeClosed Column -->
+        <ng-container matColumnDef="positionsTobeClosed">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Positions To be Closed </th>
+          <td mat-cell *matCellDef="let row" class="address-cell" matTooltip="{{row.positionsTobeClosed}}">
+            {{row.address}}</td>
+        </ng-container>
+
+        <!-- ustpocName Column -->
+        <ng-container matColumnDef="ustpocName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> UST POC </th>
+          <td mat-cell *matCellDef="let row" class="truncate-cell"> {{row.ustpocName}} </td>
+        </ng-container>
+
+        <!-- recruiterName Column -->
+        <ng-container matColumnDef="recruiterName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Recruiter </th>
+          <td mat-cell *matCellDef="let row" class="truncate-cell"> {{row.recruiterName}} </td>
+        </ng-container>
+
+        <!-- usttpmName Column -->
+        <ng-container matColumnDef="usttpmName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> UST TPM Name </th>
+          <td mat-cell *matCellDef="let row" class="internal"> {{row.usttpmName}} </td>
+        </ng-container>
+        <!-- dellManagerName Column -->
+        <ng-container matColumnDef="dellManagerName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> DELL Manager </th>
+          <td mat-cell *matCellDef="let row" class="internal"> {{row.dellManagerName}} </td>
+        </ng-container>
+        <!-- statusName Column -->
+        <ng-container matColumnDef="statusName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+          <td mat-cell *matCellDef="let row" class="internal"> {{row.statusName}} </td>
+        </ng-container>
+        <!-- band Column -->
+        <ng-container matColumnDef="band">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Band </th>
+          <td mat-cell *matCellDef="let row" class="internal"> {{row.band}} </td>
+        </ng-container>
+        <!-- projectId Column -->
+        <ng-container matColumnDef="projectId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Id </th>
+          <td mat-cell *matCellDef="let row" class="internal"> {{row.projectId}} </td>
+        </ng-container>
+        <!-- accountManager Column -->
+        <ng-container matColumnDef="accountManager">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Account Manager </th>
+          <td mat-cell *matCellDef="let row" class="internal"> {{row.accountManager}} </td>
+        </ng-container>
+        <!-- externalResource Column -->
+        <ng-container matColumnDef="externalResource">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> External Resource </th>
+          <td mat-cell *matCellDef="let row" class="internal"> {{row.externalResource}} </td>
+        </ng-container>
+        <!-- internalResource Column -->
+        <ng-container matColumnDef="internalResource">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Internal Resource </th>
+          <td mat-cell *matCellDef="let row" class="internal"> {{row.internalResource}} </td>
+        </ng-container>
+
+        <!-- actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+          <td mat-cell *matCellDef="let row" class="actions-cell">
+            <button mat-icon-button color="accent" matTooltip="Update SO detail/s" matTooltipPosition="left">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteDetails(row)" matTooltip="Delete SO"
+              matTooltipPosition="right">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <div class="paginator-container">
+        <mat-paginator [pageSizeOptions]="[5,15, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+
+    </div>
+
+  </div>
+</div>

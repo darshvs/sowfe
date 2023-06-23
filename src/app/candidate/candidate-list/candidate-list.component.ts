@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CandidateService } from 'src/app/shared/Services/CandidateService/candidate.service';
+import { StatusService } from 'src/app/shared/Services/StatusService/status.service';
 
 @Component({
   selector: 'app-candidate-list',
@@ -9,26 +11,13 @@ import { CandidateService } from 'src/app/shared/Services/CandidateService/candi
 })
 export class CandidateListComponent {
 
-  constructor(private service: CandidateService,
-    // private router: ActivatedRoute,
+  constructor(private _candidateService: CandidateService,
+    // private _router: ActivatedRoute,
     // private commonServ: CommonService,
-    // private route: Router,
-    // private statusService: StatusserviceService
-    ) { }
-  private fb = inject(FormBuilder);
-  addressForm = this.fb.group({
-    company: null,
-    firstName: [null, Validators.required],
-    lastName: [null, Validators.required],
-    address: [null, Validators.required],
-    address2: null,
-    city: [null, Validators.required],
-    state: [null, Validators.required],
-    postalCode: [null, Validators.compose([
-      Validators.required, Validators.minLength(5), Validators.maxLength(5)])
-    ],
-    shipping: ['free', Validators.required]
-  });
+    private _route: Router,
+    private _statusService: StatusService
+  ) { }
+
   hasUnitNumber = false;
 
   candidateform = new FormGroup({
@@ -46,13 +35,48 @@ export class CandidateListComponent {
     pincode: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6), Validators.pattern("^[0-9]*$")]),
     isInternal: new FormControl(),
   })
-  states = [
+  status = [
     { name: 'Alabama', abbreviation: 'AL' },
     { name: 'Alaska', abbreviation: 'AK' },
   ];
 
 
   onSubmit(): void {
-    alert('Thanks!');
+    console.log(this.candidateform.value);
+    if (this.candidateform.valid) {
+      console.log(this.candidateform.value);
+      let obj = this.candidateform.value;
+      obj.isInternal = (obj.isInternal != true) ? false : true;
+      this._candidateService.PostCandidateData(obj).subscribe(data => {
+        alert(data);
+        this.candidateform.reset();
+
+      })
+    }
+    else{
+      alert("All Fields are mandatory")
+    }
   }
+  
+
+  // GetStatusByType() {
+  //   return new Promise((res, rej) => {
+  //     this._statusService.GetStatusByType(1).subscribe(result => {
+  //       this.statusList = result;
+  //       res('')
+  //     })
+  //   })
+  // }
+    cancel() {
+      this._route.navigate(['/candidatedetails']);
+    }
+  
+    canExit() {
+      if (this.candidateform.dirty) {
+        return confirm('You have unsaved changes. Do you really want to discard these changes?');
+      }
+      else {
+        return true;
+      }
+    }
 }
