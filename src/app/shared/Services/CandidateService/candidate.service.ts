@@ -11,16 +11,11 @@ export class CandidateService {
   baseUrl: string = this.apiUrl + "/Candidate";
   private header = new HttpHeaders({ "content-type": "application/json" });
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   PostCandidateDuplicateCheck(data: any): Observable<any> {
     let DATA = { candidates: data };
-    return this.http
-      .post(`${this.baseUrl}/ImportData`, DATA, {
-        headers: this.header,
-        
-      })
-      
+    return this.http.post<any>("https://localhost:7187/api/Candidate/ImportData", DATA)
   }
   GetAllCandidatesData(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}`);
@@ -42,4 +37,5 @@ export class CandidateService {
       `${this.baseUrl}/GetDate?StartDate=${startDate}&EndDate=${endDate}`
     );
   }
+  
 }

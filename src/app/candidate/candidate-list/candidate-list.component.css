@@ -1,35 +1,25 @@
-.full-width {
+mat-form-field {
   width: 100%;
 }
 
-
-
-.mat-radio-button {
-  display: block;
-  margin: 5px 0;
+mat-radio-button{
+  color:  #006E74;
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-.col {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.col:last-child {
-  margin-right: 0;
-}
 .candidateheader{
   justify-content: center;
-  padding: 10px;
 }
-.dv1{
+.btngrp{
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
   margin-top: 20px;
 }
+mat-icon{
+  margin-left: 40%;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
 

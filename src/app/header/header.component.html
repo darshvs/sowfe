@@ -3,38 +3,42 @@
     aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>SOW Tracker</span>
+  <span>SOW TRACKER</span>
   <!-- <button mat-button routerLink="/dashboard">
     Dashboard
-  </button> -->
+  </button>
   <button mat-button routerLink="/sow">
     SOW
-  </button>
+  </button> -->
   <button mat-button routerLink="/candidatedetails">
     Candidate
   </button>
   <button mat-button routerLink="/mapping">
-    SOCandidate Mapping
+    Mapping
   </button>
   <button mat-button routerLink="/domain">
     Domain
   </button>
   <!-- <button mat-button routerLink="/technology">
     Technology
-  </button>
-  <button mat-button routerLink="/registration">
-    Registration
-  </button>
-  <button mat-button routerLink="/ChangePassword">
-    Change Password
   </button> -->
   <span class="example-spacer"></span>
-  <button mat-button>
-    <!-- <div mat-card-avatar class="example-header-image"></div> -->
-    Darshan
-  </button>
 
-  <button mat-button >
+  <button mat-button [matMenuTriggerFor]="beforeMenu">Darshan
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item routerLink="/registration">
+      Registration
+    </button>
+    <button mat-menu-item routerLink="/ChangePassword">
+      Change Password
+    </button>
+  </mat-menu>
+  <!-- <div mat-card-avatar class="example-header-image"></div> -->
+
+
+  <button mat-button>
     Logout
   </button>
 
@@ -42,8 +46,8 @@
 
 <mat-drawer-container class="example-container">
   <mat-drawer #drawer mode="side">
-   
-    
+
+
   </mat-drawer>
   <mat-drawer-content>
 

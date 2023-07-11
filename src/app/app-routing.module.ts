@@ -16,7 +16,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 
 const routes: Routes = [
   
-  { path: '', redirectTo: 'sow', pathMatch: 'full' },
+  { path: '', redirectTo: 'candidatedetails', pathMatch: 'full' },
   
   // {path:'',redirectTo:'/login',pathMatch:'full'},
   {path:'candidatedetails',component:CandidateDetailsComponent},
